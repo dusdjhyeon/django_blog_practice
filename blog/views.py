@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+#from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 # Create your views here.
@@ -9,6 +9,8 @@ class PostList(ListView):
     #template_name ='blog/index.html'
     ordering = '-pk'
 
+class PostDetail(DetailView):
+    model = Post#single_post_page 함수의 대체
 
 '''
 def index(request):
@@ -20,7 +22,7 @@ def index(request):
             'posts':posts,
         }
     )
-'''
+
 def single_post_page(request, pk):
     post = Post.objects.get(pk=pk)
     
@@ -31,4 +33,4 @@ def single_post_page(request, pk):
             'post':post,
         }
     )
-
+'''
