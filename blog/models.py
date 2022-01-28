@@ -16,7 +16,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)           #다시 저장할 때마다 그 시각이 저장됨
     
     #author
-    author = models.ForeignKey(User, on_delete=models.CASCADE) #이 포스트의 작성자가 데이터베이스에서 삭제되었을 때 이 포스트도 같이 삭제한다.
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL) #이 포스트의 작성자가 데이터베이스에서 삭제되었을 때 이 포스트도 같이 삭제한다.
 
     def __str__(self):
         return f'[{self.pk}]{self.title} :: {self.author}'   #pk: 각 레코드에 대한 고유값. 첫 번째 포스트는 pk값이 1, 두 번째 포스트는 pk값이 2., 작성자 정보도 출력
