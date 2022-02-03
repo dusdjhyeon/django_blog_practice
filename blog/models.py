@@ -33,8 +33,6 @@ class Post(models.Model):
     hook_text = models.CharField(max_length=100, blank = True)
     content = MarkdownxField()
 
-
-
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)     # upload_to에 이미지를 저장할 폴더의 경로 규칙 지정함. 연도 폴더, 월 폴더, 일 폴더까지 내려간 위치에 이미지 저장함. 'blank=True':해당 필드는 필수 항목 X.
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
     
@@ -62,3 +60,17 @@ class Post(models.Model):
     
     def get_content_markdown(self):
         return markdown(self.content)
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.author}::{self.content}'
+
+    def get_absolute_url(self):
+        return f'{self.post.get_absolute_url()}#comment-{self.pk}'
+
