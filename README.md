@@ -7,12 +7,12 @@
 </div>
 
 #### Contents
-[1. About the project](#❤-About-the-project)
-[2. Getting Started](#💛-Getting-Started-(Installation))
-[3. Main Feature](#🧡-Main-Feature)
-[4. Page](#💚-Page)
-[5. Architecture](#💙-Architecture)
-[6. Contact](#💜-contact)
+[1. About the project](#❤-About-the-project)  
+[2. Getting Started](#💛-Getting-Started-(Installation))  
+[3. Main Feature](#🧡-Main-Feature)  
+[4. Page](#💚-Page)  
+[5. Architecture](#💙-Architecture)  
+[6. Contact](#💜-contact)  
 
 ------------------------
 ## ❤ About the project
